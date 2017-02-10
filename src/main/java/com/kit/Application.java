@@ -9,6 +9,7 @@ import com.kit.gui.controller.*;
 import com.kit.gui.laf.ColourScheme;
 import com.kit.gui.laf.DarkColourScheme;
 import com.kit.gui.view.AppletView;
+import com.kit.gui2.MainFrame;
 import jiconfont.icons.FontAwesome;
 import jiconfont.swing.IconFontSwing;
 import org.apache.log4j.Logger;
@@ -35,6 +36,7 @@ public class Application {
     public static boolean devMode;
 
     public static Image ICON_IMAGE;
+    public static MainFrame FRAME;
 
     public static final Map<Skill, Image> SKILL_IMAGE_ICONS = new HashMap<>();
     public static final Map<String, Image> FLAG_IMAGES = new HashMap<>();
@@ -80,7 +82,7 @@ public class Application {
             SwingUtilities.invokeAndWait(() -> {
                 IconFontSwing.register(FontAwesome.getIconFont());
                 COLOUR_SCHEME.init();
-                new SidebarController();
+                /*new SidebarController();
                 new MainController();
                 new LoginController();
                 new SettingsDebugController();
@@ -88,7 +90,9 @@ public class Application {
                 new SettingsController();
                 new GalleryController();
 
-                ControllerManager.get(LoginController.class).show();
+                ControllerManager.get(LoginController.class).show();*/
+                FRAME = new MainFrame();
+                FRAME.setVisible(true);
             });
         } catch (Throwable t) {
             logger.error("Initialization failed.", t);

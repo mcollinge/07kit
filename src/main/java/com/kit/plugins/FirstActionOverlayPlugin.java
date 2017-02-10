@@ -73,8 +73,13 @@ public class FirstActionOverlayPlugin extends Plugin {
             g.setFont(g.getFont().deriveFont(Font.BOLD));
             int actionWidth = g.getFontMetrics().stringWidth(action);
 
-            Rectangle box = new Rectangle(mousePos.x, (mousePos.y - g.getFontMetrics().getHeight()), actionWidth + 10, 18);
-
+            Rectangle box;
+            // Off screen check
+            if ((mousePos.x + actionWidth + 10) > Session.get().client().getCanvas().getWidth()) {
+                box = new Rectangle(mousePos.x - (actionWidth + 10), (mousePos.y - g.getFontMetrics().getHeight()), actionWidth + 10, 18);
+            } else {
+                box = new Rectangle(mousePos.x, (mousePos.y - g.getFontMetrics().getHeight()), actionWidth + 10, 18);
+            }
 
             g.setColor(new Color(75, 67, 54, 255));
             g.fillRect(box.x, box.y, box.width, box.height);

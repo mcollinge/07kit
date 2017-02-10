@@ -2,15 +2,7 @@ package com.kit.plugins.grandexchange;
 
 import com.kit.Application;
 import net.miginfocom.swing.MigLayout;
-import com.kit.Application;
 import com.kit.api.service.CacheService;
-import com.kit.api.util.ItemCompositesUtil;
-import com.kit.api.wrappers.ItemComposite;
-import com.kit.game.engine.IGrandExchangeOffer;
-import com.kit.gui.component.MateProgressBar;
-import com.kit.gui.icons.Icons;
-import com.kit.Application;
-import com.kit.api.util.ItemCompositesUtil;
 import com.kit.api.wrappers.ItemComposite;
 import com.kit.game.engine.IGrandExchangeOffer;
 import com.kit.gui.component.MateProgressBar;
@@ -21,8 +13,6 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.URL;
-
-import static javax.swing.SwingConstants.CENTER;
 
 /**
  */

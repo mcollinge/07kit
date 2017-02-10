@@ -6,6 +6,7 @@ import com.kit.api.event.EventHandler;
 import com.kit.api.debug.AbstractDebug;
 import com.kit.api.event.PaintEvent;
 import com.kit.api.wrappers.GameObject;
+import com.kit.api.wrappers.ObjectComposite;
 import com.kit.core.Session;
 import com.kit.api.debug.AbstractDebug;
 import com.kit.api.event.EventHandler;
@@ -33,7 +34,17 @@ public class BoundaryObjectDebug extends AbstractDebug {
         if (ctx().isLoggedIn()) {
             for (GameObject object : ctx().objects.find().distance(10).type(BOUNDARY).asList()) {
                 Point pos = object.getBasePoint();
-                g.drawString(String.valueOf(object.getId()), pos.x, pos.y);
+                ObjectComposite composite = object.getComposite();
+                if (composite == null || composite.getName() == null) {
+                    g.drawString(String.valueOf(object.getId()), pos.x, pos.y);
+                } else {
+                    g.drawString(composite.getName() + " | " + String.valueOf(object.getId()), pos.x, pos.y);
+                    int y = pos.y + 10;
+                    for (short colour: composite.getOriginalModelColors()) {
+                        g.drawString(String.valueOf(colour), pos.x, y);
+                        y += 10;
+                    }
+                }
             }
 
             List<GameObject> boundariesOnTile = ctx().objects.find().location(ctx().player.getTile()).type(BOUNDARY).asList();

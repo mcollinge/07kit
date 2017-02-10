@@ -54,6 +54,8 @@ public class MiningOverlayPlugin extends Plugin {
     private boolean showAdamntite;
     @Option(label = "Show runite rocks", type = Option.Type.TOGGLE, value = "true")
     private boolean showRunite;
+    @Option(label = "Show ore veins", type = Option.Type.TOGGLE, value = "true")
+    private boolean showOreVein;
     @Option(label = "Draw rocks on minimap", type = Option.Type.TOGGLE, value = "true")
     private boolean showOnMinimap;
     @Option(label = "Draw rocks on screen", type = Option.Type.TOGGLE, value = "true")
@@ -112,9 +114,8 @@ public class MiningOverlayPlugin extends Plugin {
         }
 
         rocks = objects.find()
-                .type(GameObject.GameObjectType.INTERACTABLE)
                 .hasAction("Mine")
-                .distance(17)
+                .distance(15)
                 .filter(filter)
                 .asList()
                 .stream()
@@ -201,6 +202,7 @@ public class MiningOverlayPlugin extends Plugin {
         RockType.MITHRIL.setShow(showMithril);
         RockType.ADAMANTITE.setShow(showAdamntite);
         RockType.RUNITE.setShow(showRunite);
+        RockType.ORE_VEIN.setShow(showOreVein);
 
         List<Short> colors = new ArrayList<>();
 

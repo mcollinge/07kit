@@ -60,13 +60,14 @@ public final class Property {
         return container;
     }
 
-    public void save() {
+    public Property save() {
         if (container.contains(this)) {
             container.remove(this);
         }
         container.add(this);
         container.save();
         Session.get().getEventBus().submit(new PropertyChangedEvent(this));
+        return this;
     }
 
     public void remove() {

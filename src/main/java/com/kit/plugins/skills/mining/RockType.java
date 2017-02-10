@@ -13,7 +13,8 @@ public enum RockType {
     GOLD(new short[]{ 8885 }, new int[]{ 7458, 7491 }),
     MITHRIL(new short[]{ -22239 }, new int[]{ 7459, 7492 }),
     ADAMANTITE(new short[]{ 21662 }, new int[]{ 7460 }),
-    RUNITE(new short[]{ -31437 }, new int[]{});
+    RUNITE(new short[]{ -31437 }, new int[]{}),
+    ORE_VEIN(new short[] {70, 53}, new int[] {26661, 26662, 26663, 26664});
 
     private short[] colors;
     private int[] ids;

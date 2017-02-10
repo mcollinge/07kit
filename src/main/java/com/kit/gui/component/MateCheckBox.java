@@ -3,12 +3,8 @@ package com.kit.gui.component;
 import com.kit.Application;
 import jiconfont.icons.FontAwesome;
 import jiconfont.swing.IconFontSwing;
-import com.kit.Application;
-import com.kit.gui.icons.Icons;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.io.IOException;
 
 /**
  * Date: 07/12/2016
