@@ -82,7 +82,7 @@ public class Application {
             SwingUtilities.invokeAndWait(() -> {
                 IconFontSwing.register(FontAwesome.getIconFont());
                 COLOUR_SCHEME.init();
-                /*new SidebarController();
+                new SidebarController();
                 new MainController();
                 new LoginController();
                 new SettingsDebugController();
@@ -90,9 +90,9 @@ public class Application {
                 new SettingsController();
                 new GalleryController();
 
-                ControllerManager.get(LoginController.class).show();*/
-                FRAME = new MainFrame();
-                FRAME.setVisible(true);
+                ControllerManager.get(LoginController.class).show();
+                /*FRAME = new MainFrame();
+                FRAME.setVisible(true);*/
             });
         } catch (Throwable t) {
             logger.error("Initialization failed.", t);

@@ -28,7 +28,9 @@ import com.kit.Application;
 import com.kit.api.plugin.Option;
 import com.kit.api.wrappers.NpcComposite;
 import com.kit.core.control.PluginManager;
+import com.kit.gui2.modelviewer.ModelViewer;
 
+import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
@@ -44,6 +46,8 @@ public class NpcMarkerOverlayPlugin extends Plugin {
     private boolean idleOnly;
 
     private List<Npc> matchedNpcs;
+
+    private ModelViewer viewer = null;
 
     public NpcMarkerOverlayPlugin(PluginManager manager) {
         super(manager);
@@ -79,6 +83,12 @@ public class NpcMarkerOverlayPlugin extends Plugin {
         if (!isLoggedIn() || matchedNpcs == null || matchedNpcs.size() == 0 || bank.isOpen()) {
             return;
         }
+
+        /*SwingUtilities.invokeLater(() -> {
+            if (viewer == null)
+                viewer = new ModelViewer();
+            viewer.setModel(matchedNpcs.get(0).getModel());
+        });*/
 
         Graphics2D g2d = (Graphics2D) event.getGraphics().create();
         for (Npc npc : matchedNpcs) {

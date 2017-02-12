@@ -1,0 +1,207 @@
+.root {
+    -fx-background-color: rgba(40, 40, 40, 1);
+}
+
+.large {
+    -fx-min-height: 46px;
+    -fx-max-height: 46px;
+    -fx-font-size: 18px;
+}
+
+.medium {
+    -fx-min-height: 30px;
+    -fx-max-height: 30px;
+    -fx-font-size: 14px;
+}
+
+.large {
+    -fx-min-height: 22px;
+    -fx-max-height: 22px;
+    -fx-font-size: 10px;
+}
+
+.wrapper-light {
+    -fx-background-color: rgba(60, 56, 54, 1);
+}
+
+.wrapper-dark {
+    -fx-background-color: rgba(40, 40, 40, 1);
+}
+
+.label {
+    -fx-text-fill: rgba(251, 241, 199, 1);
+    -fx-font-family: "Roboto Mono";
+}
+
+.button {
+    -fx-text-fill: rgba(251, 241, 199, 1);
+    -fx-font-family: "Roboto Mono";
+    -fx-background-radius: 0px 0px 0px 0px;
+    -fx-background-color: rgba(146, 131, 116, 1);
+}
+.button:hover {
+    -fx-background-color: rgba(168, 153, 132, 1);
+}
+.button.red {
+    -fx-background-color: rgba(204, 36, 29, 1);
+}
+.button.red:hover {
+    -fx-background-color: rgba(251, 73, 52, 1);
+}
+.button.green {
+    -fx-background-color: rgba(152, 151, 26, 1);
+}
+.button.green:hover {
+    -fx-background-color: rgba(184, 187, 38, 1);
+}
+.button.yellow {
+    -fx-background-color: rgba(215, 153, 33, 1);
+}
+.button.yellow:hover {
+    -fx-background-color: rgba(250, 189, 47, 1);
+}
+.button.blue {
+    -fx-background-color: rgba(69, 133, 136, 1);
+}
+.button.blue:hover {
+    -fx-background-color: rgba(131, 165, 152, 1);
+}
+.button.purple {
+    -fx-background-color: rgba(177, 98, 134, 1);
+}
+.button.purple:hover {
+    -fx-background-color: rgba(211, 134, 155, 1);
+}
+.button.aqua {
+    -fx-background-color: rgba(104, 157, 106, 1);
+}
+.button.aqua:hover {
+    -fx-background-color: rgba(142, 192, 124, 1);
+}
+.button.orange {
+    -fx-background-color: rgba(214, 93, 14, 1);
+}
+.button.orange:hover {
+    -fx-background-color: rgba(254, 128, 25, 1);
+}
+
+.progress-bar .track {
+    -fx-pref-height: 10px;
+    -fx-background-radius: 0px 0px 0px 0px;
+    -fx-background-color: rgba(251, 241, 199, 1);
+}
+.progress-bar .bar {
+    -fx-background-insets: 0px 0px 0px 0px;
+    -fx-background-radius: 0px 0px 0px 0px;
+    -fx-background-color: rgba(146, 131, 116, 1);
+}
+.progress-bar.red .bar {
+    -fx-background-color: rgba(204, 36, 29, 1);
+}
+.progress-bar.green .bar {
+    -fx-background-color: rgba(152, 151, 26, 1);
+}
+.progress-bar.yellow .bar {
+    -fx-background-color: rgba(215, 153, 33, 1);
+}
+.progress-bar.blue .bar {
+    -fx-background-color: rgba(69, 133, 136, 1);
+}
+.progress-bar.purple .bar {
+    -fx-background-color: rgba(177, 98, 134, 1);
+}
+.progress-bar.aqua .bar {
+    -fx-background-color: rgba(104, 157, 106, 1);
+}
+.progress-bar.orange .bar {
+    -fx-background-color: rgba(214, 93, 14, 1);
+}
+
+.text-field {
+    -fx-pref-height: 30px;
+    -fx-background-color: rgba(251, 241, 199, 1);
+}
+
+.text-field, .text-area {
+    -fx-border-color: rgba(235, 219, 178, 1) rgba(235, 219, 178, 1) rgba(235, 219, 178, 1) rgba(235, 219, 178, 1);
+    -fx-text-fill: rgba(40, 40, 40, 1);
+    -fx-prompt-text-fill: rgba(60, 56, 54, 1);
+    -fx-font-family: "Roboto Mono";
+    -fx-highlight-fill: rgba(60, 56, 54, 1);
+    -fx-highlight-text-fill: rgba(251, 241, 199, 1);
+}
+.text-field :focused, .text-area :focused {
+    -fx-border-color: rgba(251, 241, 199, 1) rgba(251, 241, 199, 1) rgba(251, 241, 199, 1) rgba(251, 241, 199, 1);
+}
+
+.titled-pane {
+    -fx-font-family: "Roboto Mono";
+    -fx-text-fill: rgba(251, 241, 199, 1);
+}
+.titled-pane .title {
+    -fx-background-color: rgba(146, 131, 116, 1);
+    -fx-background-radius: 0px 0px 0px 0px;
+    -fx-padding: 11px 11px 11px 11px;
+}
+.titled-pane .content {
+    -fx-background-color: rgba(60, 56, 54, 1);
+    -fx-border-width: 1px 1px 1px 1px;
+    -fx-border-color: rgba(146, 131, 116, 1) rgba(146, 131, 116, 1) rgba(146, 131, 116, 1) rgba(146, 131, 116, 1);
+}
+.titled-pane.red .title {
+    -fx-background-color: rgba(204, 36, 29, 1);
+}
+.titled-pane.red .content {
+    -fx-border-color: rgba(204, 36, 29, 1) rgba(204, 36, 29, 1) rgba(204, 36, 29, 1) rgba(204, 36, 29, 1);
+}
+.titled-pane.green .title {
+    -fx-background-color: rgba(152, 151, 26, 1);
+}
+.titled-pane.green .content {
+    -fx-border-color: rgba(152, 151, 26, 1) rgba(152, 151, 26, 1) rgba(152, 151, 26, 1) rgba(152, 151, 26, 1);
+}
+.titled-pane.yellow .title {
+    -fx-background-color: rgba(215, 153, 33, 1);
+}
+.titled-pane.yellow .content {
+    -fx-border-color: rgba(215, 153, 33, 1) rgba(215, 153, 33, 1) rgba(215, 153, 33, 1) rgba(215, 153, 33, 1);
+}
+.titled-pane.blue .title {
+    -fx-background-color: rgba(69, 133, 136, 1);
+}
+.titled-pane.blue .content {
+    -fx-border-color: rgba(69, 133, 136, 1) rgba(69, 133, 136, 1) rgba(69, 133, 136, 1) rgba(69, 133, 136, 1);
+}
+.titled-pane.purple .title {
+    -fx-background-color: rgba(177, 98, 134, 1);
+}
+.titled-pane.purple .content {
+    -fx-border-color: rgba(177, 98, 134, 1) rgba(177, 98, 134, 1) rgba(177, 98, 134, 1) rgba(177, 98, 134, 1);
+}
+.titled-pane.aqua .title {
+    -fx-background-color: rgba(104, 157, 106, 1);
+}
+.titled-pane.aqua .content {
+    -fx-border-color: rgba(104, 157, 106, 1) rgba(104, 157, 106, 1) rgba(104, 157, 106, 1) rgba(104, 157, 106, 1);
+}
+.titled-pane.orange .title {
+    -fx-background-color: rgba(214, 93, 14, 1);
+}
+.titled-pane.orange .content {
+    -fx-border-color: rgba(214, 93, 14, 1) rgba(214, 93, 14, 1) rgba(214, 93, 14, 1) rgba(214, 93, 14, 1);
+}
+
+.check-box {
+    -fx-text-fill: rgba(251, 241, 199, 1);
+    -fx-label-padding: 0px 0px 0px 5px;
+}
+.check-box .box {
+    -fx-background-color: rgba(251, 241, 199, 1);
+    -fx-background-radius: 0px 0px 0px 0px;
+    -fx-border-color: rgba(235, 219, 178, 1) rgba(235, 219, 178, 1) rgba(235, 219, 178, 1) rgba(235, 219, 178, 1);
+    -fx-border-width: 1px 1px 1px 1px;
+}
+.check-box .box .mark {
+    -fx-shape: "M927.936 272.992l-68.288-68.288c-12.608-12.576-32.96-12.576-45.536 0l-409.44 409.44-194.752-196.16c-12.576-12.576-32.928-12.576-45.536 0l-68.288 68.288c-12.576 12.608-12.576 32.96 0 45.536l285.568 287.488c12.576 12.576 32.96 12.576 45.536 0l500.736-500.768c12.576-12.544 12.576-32.96 0-45.536z";
+}
+
