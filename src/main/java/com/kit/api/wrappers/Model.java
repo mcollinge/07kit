@@ -237,21 +237,21 @@ public class Model extends Interactable implements Wrapper<IModel> {
         return polys.toArray(new Polygon[polys.size()]);
     }
 
-    public float[][] getTriangles() {
+    public List<float[]> getTriangles() {
         ArrayList<float[]> triangles = newArrayList();
         for (int i = 0; i < trianglesX.length; i++) {
             if (i >= trianglesY.length && i >= trianglesZ.length) {
                 return null;
             }
 
-            float[] one = {verticesX[trianglesX[i]], verticesZ[trianglesX[i]], -verticesY[trianglesX[i]]};
-            float[] two = {verticesX[trianglesY[i]], verticesZ[trianglesY[i]], -verticesY[trianglesY[i]]};
-            float[] three = {verticesX[trianglesZ[i]], verticesZ[trianglesZ[i]], -verticesY[trianglesZ[i]]};
+            float[] one = {localX - verticesX[trianglesX[i]], localY - verticesY[trianglesX[i]], -verticesZ[trianglesX[i]]};
+            float[] two = {localX - verticesX[trianglesY[i]], localY - verticesY[trianglesY[i]], -verticesZ[trianglesY[i]]};
+            float[] three = {localX - verticesX[trianglesZ[i]], localY - verticesY[trianglesZ[i]], -verticesZ[trianglesZ[i]]};
             triangles.add(one);
             triangles.add(two);
             triangles.add(three);
         }
-        return triangles.toArray(new float[triangles.size()][]);
+        return triangles;
     }
 
     private boolean rightTurn(Point a, Point b, Point c) {

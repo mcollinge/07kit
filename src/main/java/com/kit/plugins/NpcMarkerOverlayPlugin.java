@@ -6,8 +6,9 @@ import com.kit.api.plugin.Option;
 import com.kit.api.plugin.Plugin;
 import com.kit.api.plugin.Schedule;
 import com.kit.api.util.PaintUtils;
-import com.kit.api.wrappers.NpcComposite;
+import com.kit.api.wrappers.*;
 import com.kit.core.Session;
+import com.kit.game.cache.io.Stream;
 import com.kit.game.engine.cache.composite.INpcComposite;
 import com.kit.Application;
 import com.kit.api.event.ActionEvent;
@@ -19,7 +20,6 @@ import com.kit.api.plugin.Plugin;
 import com.kit.api.plugin.Schedule;
 import com.kit.api.util.NpcCompositesUtil;
 import com.kit.api.util.PaintUtils;
-import com.kit.api.wrappers.Npc;
 import com.kit.api.wrappers.NpcComposite;
 import com.kit.core.Session;
 import com.kit.core.control.PluginManager;
@@ -33,6 +33,7 @@ import com.kit.gui2.modelviewer.ModelViewer;
 import javax.swing.*;
 import java.awt.*;
 import java.util.List;
+import java.util.Optional;
 
 /**
  */
@@ -83,12 +84,6 @@ public class NpcMarkerOverlayPlugin extends Plugin {
         if (!isLoggedIn() || matchedNpcs == null || matchedNpcs.size() == 0 || bank.isOpen()) {
             return;
         }
-
-        /*SwingUtilities.invokeLater(() -> {
-            if (viewer == null)
-                viewer = new ModelViewer();
-            viewer.setModel(matchedNpcs.get(0).getModel());
-        });*/
 
         Graphics2D g2d = (Graphics2D) event.getGraphics().create();
         for (Npc npc : matchedNpcs) {

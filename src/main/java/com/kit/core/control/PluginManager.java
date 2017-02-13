@@ -164,6 +164,8 @@ public final class PluginManager {
 
             plugins.add(new AFKWatcherPlugin(this));
 
+            plugins.add(new PlayerViewerPlugin(this));
+
             lifecycleManager.scheduleAtFixedRate(this::updateLifecycle, 0, 500, TimeUnit.MILLISECONDS);
         } catch (Exception e) {
             logger.error("Error creating plugins", e);
