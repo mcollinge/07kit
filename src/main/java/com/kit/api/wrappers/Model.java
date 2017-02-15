@@ -244,9 +244,13 @@ public class Model extends Interactable implements Wrapper<IModel> {
                 return null;
             }
 
-            float[] one = {localX - verticesX[trianglesX[i]], localY - verticesY[trianglesX[i]], -verticesZ[trianglesX[i]]};
+            /*float[] one = {localX - verticesX[trianglesX[i]], localY - verticesY[trianglesX[i]], -verticesZ[trianglesX[i]]};
             float[] two = {localX - verticesX[trianglesY[i]], localY - verticesY[trianglesY[i]], -verticesZ[trianglesY[i]]};
-            float[] three = {localX - verticesX[trianglesZ[i]], localY - verticesY[trianglesZ[i]], -verticesZ[trianglesZ[i]]};
+            float[] three = {localX - verticesX[trianglesZ[i]], localY - verticesY[trianglesZ[i]], -verticesZ[trianglesZ[i]]};*/
+
+            float[] one = {verticesX[trianglesX[i]], verticesY[trianglesX[i]], -verticesZ[trianglesX[i]]};
+            float[] two = {verticesX[trianglesY[i]], verticesY[trianglesY[i]], -verticesZ[trianglesY[i]]};
+            float[] three = {verticesX[trianglesZ[i]], verticesY[trianglesZ[i]], -verticesZ[trianglesZ[i]]};
             triangles.add(one);
             triangles.add(two);
             triangles.add(three);

@@ -5,10 +5,14 @@ import com.kit.api.event.PaintEvent;
 import com.kit.api.plugin.Plugin;
 import com.kit.api.wrappers.Entity;
 import com.kit.api.wrappers.Model;
+import com.kit.api.wrappers.Npc;
 import com.kit.core.control.PluginManager;
+import com.kit.game.engine.renderable.entity.INpc;
 import com.kit.gui2.modelviewer.ModelViewer;
 
 import javax.swing.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -48,12 +52,27 @@ public class PlayerViewerPlugin extends Plugin {
             return;
 
         SwingUtilities.invokeLater(() -> {
-            Model playerModel = player.getModel();
+
             if (viewer == null)
                 viewer = new ModelViewer();
-            viewer.setModel(playerModel);
-            viewer.setCamera(client().getCameraX(), client().getCameraZ(), client().getCameraY(), client().getCameraPitch(), client().getCameraYaw());
+
+            viewer.setCamera(client().getCameraZ(), camera.getPitch(), camera.getAngle());
+
+           /* List<INpc> npcs = new ArrayList<>();
+            for (INpc npc: client().getNpcs()) {
+                if (npc != null)
+                    npcs.add(npc);
+            }*/
+
+            //viewer.setNpcs(npcs.toArray(new INpc[npcs.size()]), player.getLocalX(), player.getLocalY());
+            viewer.setPlayer(player.unwrap().unwrap());
+
+            Npc npc = npcs.find("Hatius Cosaintus").single();
+            if (npc != null)
+                viewer.setNpcs(npc.unwrap(), player.getLocalX(), player.getLocalY());
         });
+
+
     }
 
 }

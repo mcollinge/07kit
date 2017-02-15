@@ -63,7 +63,8 @@ public class CameraImpl implements Camera {
      */
     @Override
     public int getPitch() {
-        return context.client().getCameraPitch();
+        //return context.client().getCameraPitch();
+        return (int) (((double) context.client().getCameraPitch() / 2048.0) * 360.0);
     }
 
     /**
