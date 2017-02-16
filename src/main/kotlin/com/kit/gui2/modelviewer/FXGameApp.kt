@@ -53,7 +53,7 @@ class FXGameApp : Application() {
         group.isAutoSizeChildren = false
         group.depthTest = DepthTest.ENABLE
 
-        val scene = Scene(StackPane(group), 765.0, 503.0,true, SceneAntialiasing.BALANCED)
+        val scene = Scene(group, 765.0, 503.0,true, SceneAntialiasing.BALANCED)
         scene.fill = Color.BLACK
         scene.camera = cameraController.camera
 
@@ -122,9 +122,10 @@ class FXGameApp : Application() {
 
         private fun updateCamera() {
             val camera = Session.get().camera
-            cameraController.setPivot(Session.get().player.localX.toDouble(), 0.0, Session.get().player.localY.toDouble())
+            cameraController.reset()
+            cameraController.setPivot(Session.get().player.localX.toDouble(), camera.z.toDouble(), Session.get().player.localY.toDouble())
             cameraController.setTranslate(camera.x.toDouble(), camera.z.toDouble(), camera.y.toDouble())
-            cameraController.setRotate(-camera.pitch.toDouble(), camera.angle.toDouble(), 0.0)
+            cameraController.setRotate(-camera.pitch.toDouble(), -camera.angle.toDouble(), 0.0)
         }
 
     }
