@@ -5,6 +5,8 @@ import com.kit.game.engine.renderable.entity.IPlayer
 import javafx.application.Platform
 import javafx.collections.FXCollections
 import javafx.embed.swing.JFXPanel
+import javafx.geometry.Pos
+import javafx.scene.DepthTest
 import javafx.scene.Group
 import javafx.scene.PerspectiveCamera
 import javafx.scene.Scene
@@ -44,13 +46,13 @@ class ModelViewer: JFrame("Model Viewer") {
         isVisible = true
     }
 
-    fun setCamera(cameraZ: Double, pitch: Double, yaw: Double) {
+    fun setCamera(cameraX: Double, cameraY: Double, cameraZ: Double, pitch: Double, yaw: Double) {
         Platform.runLater {
             group.transforms.setAll(
-                    Rotate(-pitch, 0.0, 0.0, 0.0, Rotate.X_AXIS),
-                    Rotate(-yaw, 0.0, 0.0, 0.0, Rotate.Y_AXIS)
+                    Rotate(pitch, 0.0, 0.0, 0.0, Rotate.X_AXIS),
+                    Rotate(yaw, 0.0, 0.0, 0.0, Rotate.Y_AXIS),
+                    Translate(0.0, 0.0, cameraZ)
             )
-            camera.translateZ = cameraZ
         }
     }
 
@@ -71,6 +73,9 @@ class ModelViewer: JFrame("Model Viewer") {
 
             playerMesh.points.setAll(points)
             playerMesh.faces.setAll(faces)
+           /* playerMeshView.transforms.setAll(
+                    Translate(player.localX.toDouble(), 0.0, player.localY.toDouble())
+            )*/
         }
     }
 
@@ -93,7 +98,7 @@ class ModelViewer: JFrame("Model Viewer") {
             npcMesh.points.setAll(points)
             npcMesh.faces.setAll(faces)
             npcMeshView.transforms.setAll(
-                    Translate(-(playerX - npcs.localX).toDouble(), 0.0, (playerZ - npcs.localY.toDouble()))
+                    Translate((npcs.localX - playerX).toDouble(), 0.0, (npcs.localY.toDouble() - playerZ))
             )
 
 
@@ -104,6 +109,11 @@ class ModelViewer: JFrame("Model Viewer") {
         Platform.runLater {
 
             group.isAutoSizeChildren = false
+            group.depthTest = DepthTest.ENABLE
+            group.minWidth(765.0)
+            group.maxWidth(765.0)
+            group.minHeight(503.0)
+            group.maxHeight(503.0)
 
             playerMesh.texCoords.setAll(
                     0f, 0f,
@@ -129,9 +139,11 @@ class ModelViewer: JFrame("Model Viewer") {
             box.material = PhongMaterial(Color.RED)
             box.drawMode = DrawMode.FILL
 
+
             group.children.add(box)
 
-            val scene = Scene(root, 800.0, 600.0, true)
+
+            val scene = Scene(root, 765.0, 503.0, true)
             scene.camera = camera
 
             panel.scene = scene

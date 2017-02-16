@@ -56,7 +56,7 @@ public class PlayerViewerPlugin extends Plugin {
             if (viewer == null)
                 viewer = new ModelViewer();
 
-            viewer.setCamera(client().getCameraZ(), camera.getPitch(), camera.getAngle());
+            viewer.setCamera(camera.getX(), camera.getY(), client().getCameraZ(), camera.getPitch(), camera.getAngle());
 
            /* List<INpc> npcs = new ArrayList<>();
             for (INpc npc: client().getNpcs()) {

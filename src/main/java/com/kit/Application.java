@@ -10,6 +10,8 @@ import com.kit.gui.laf.ColourScheme;
 import com.kit.gui.laf.DarkColourScheme;
 import com.kit.gui.view.AppletView;
 import com.kit.gui2.MainFrame;
+import com.kit.gui2.modelviewer.FXGameApp;
+import javafx.application.Platform;
 import jiconfont.icons.FontAwesome;
 import jiconfont.swing.IconFontSwing;
 import org.apache.log4j.Logger;
@@ -93,10 +95,12 @@ public class Application {
                 ControllerManager.get(LoginController.class).show();
                 /*FRAME = new MainFrame();
                 FRAME.setVisible(true);*/
+
             });
         } catch (Throwable t) {
             logger.error("Initialization failed.", t);
         }
+        javafx.application.Application.launch(FXGameApp.class);
     }
 
     private static void prepareEnvironment() {
@@ -124,7 +128,6 @@ public class Application {
                 logger.error("Exception on thread " + t.getName(), e);
             }
         });
-
         Property.getContainer().load();
     }
 
