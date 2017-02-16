@@ -23,7 +23,7 @@ class CameraController: Group() {
         pitch.axis = Rotate.X_AXIS
         yaw.axis = Rotate.Y_AXIS
         roll.axis = Rotate.Z_AXIS
-        transforms.setAll(translate, pivot, yaw, pitch, roll, inversePivot)
+        transforms.setAll(pivot, yaw, pitch, roll, inversePivot, translate)
         children.add(camera)
     }
 
