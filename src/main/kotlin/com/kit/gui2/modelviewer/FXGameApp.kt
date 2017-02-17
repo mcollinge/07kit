@@ -11,6 +11,7 @@ import javafx.scene.paint.PhongMaterial
 import javafx.scene.shape.DrawMode
 import javafx.scene.shape.MeshView
 import javafx.scene.shape.TriangleMesh
+import javafx.scene.transform.Rotate
 import javafx.scene.transform.Translate
 import javafx.stage.Stage
 
@@ -49,7 +50,7 @@ class FXGameApp : Application() {
         npcMeshView.material = PhongMaterial(Color.GREEN)
         npcMeshView.drawMode = DrawMode.FILL
 
-        val group = Group(cameraController, playerMeshView, npcMeshView)
+        val group = Group(cameraController, npcMeshView, playerMeshView)
         group.isAutoSizeChildren = false
         group.depthTest = DepthTest.ENABLE
 
@@ -63,7 +64,6 @@ class FXGameApp : Application() {
         primaryStage?.show()
 
         clientAnimator.start()
-
     }
 
     private inner class ClientAnimator: AnimationTimer() {
@@ -91,8 +91,13 @@ class FXGameApp : Application() {
 
             playerMesh.points.setAll(points)
             playerMesh.faces.setAll(faces)
+
+            val x = Session.get().player.localX.toDouble()
+            val y = Session.get().viewport.getTileHeight(Session.get().player.localX, Session.get().player.localY, Session.get().player.z).toDouble()
+            val z = Session.get().player.localY.toDouble()
+
             playerMeshView.transforms.setAll(
-                    Translate(Session.get().player.localX.toDouble(), 0.0, Session.get().player.localY.toDouble())
+                    Translate(x, y, z)
             )
         }
 
@@ -115,17 +120,23 @@ class FXGameApp : Application() {
 
             npcMesh.points.setAll(points)
             npcMesh.faces.setAll(faces)
+
+            val x = npc.localX.toDouble()
+            val y = Session.get().viewport.getTileHeight(npc.localX, npc.localY, npc.z).toDouble()
+            val z = npc.localY.toDouble()
+
             npcMeshView.transforms.setAll(
-                    Translate(npc.localX.toDouble(), 0.0, npc.localY.toDouble())
+                    Translate(x, y, z)
             )
         }
 
         private fun updateCamera() {
             val camera = Session.get().camera
+
             cameraController.reset()
-            cameraController.setPivot(Session.get().player.localX.toDouble(), camera.z.toDouble(), Session.get().player.localY.toDouble())
-            cameraController.setTranslate(camera.x.toDouble(), camera.z.toDouble(), camera.y.toDouble())
+            cameraController.setPivot(camera.x.toDouble(), camera.z.toDouble(), camera.y.toDouble())
             cameraController.setRotate(-camera.pitch.toDouble(), -camera.angle.toDouble(), 0.0)
+            cameraController.setTranslate(camera.x.toDouble(), camera.z.toDouble(), camera.y.toDouble())
         }
 
     }
