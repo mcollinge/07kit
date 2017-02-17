@@ -64,6 +64,7 @@ class FXGameApp : Application() {
         primaryStage?.show()
 
         clientAnimator.start()
+        
     }
 
     private inner class ClientAnimator: AnimationTimer() {
