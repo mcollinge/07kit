@@ -3,17 +3,11 @@ package com.kit.plugins;
 import com.kit.api.event.EventHandler;
 import com.kit.api.event.PaintEvent;
 import com.kit.api.plugin.Plugin;
-import com.kit.api.wrappers.Entity;
-import com.kit.api.wrappers.Model;
 import com.kit.api.wrappers.Npc;
 import com.kit.core.control.PluginManager;
-import com.kit.game.engine.renderable.entity.INpc;
 import com.kit.gui2.modelviewer.ModelViewer;
 
 import javax.swing.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 /**
  * Date: 13/02/2017
@@ -56,7 +50,7 @@ public class PlayerViewerPlugin extends Plugin {
             if (viewer == null)
                 viewer = new ModelViewer();
 
-            viewer.setCamera(camera.getX(), camera.getY(), client().getCameraZ(), camera.getPitch(), camera.getAngle());
+            viewer.setCamera(camera.getX(), camera.getY(), client().getCameraZ(), camera.getPitch(), camera.getYaw());
 
            /* List<INpc> npcs = new ArrayList<>();
             for (INpc npc: client().getNpcs()) {

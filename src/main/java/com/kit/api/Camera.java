@@ -31,14 +31,14 @@ public interface Camera {
 
 
     /**
-     * Retrieves the current camera angle.
+     * Retrieves the current camera yaw in degrees.
      *
-     * @return camera angle
+     * @return camera yaw
      */
-    int getAngle();
+    int getYaw();
 
     /**
-     * Retrieves the current camera pitch
+     * Retrieves the current camera pitch in degrees.
      *
      * @return camera pitch
      */

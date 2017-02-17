@@ -54,7 +54,7 @@ public class CameraImpl implements Camera {
      * {@inheritDoc}
      */
     @Override
-    public int getAngle() {
+    public int getYaw() {
         return (int) (((double) context.client().getCameraYaw() / 2048.0) * 360.0);
     }
 

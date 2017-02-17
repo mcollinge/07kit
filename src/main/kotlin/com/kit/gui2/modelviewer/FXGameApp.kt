@@ -135,7 +135,7 @@ class FXGameApp : Application() {
 
             cameraController.reset()
             cameraController.setPivot(camera.x.toDouble(), camera.z.toDouble(), camera.y.toDouble())
-            cameraController.setRotate(-camera.pitch.toDouble(), -camera.angle.toDouble(), 0.0)
+            cameraController.setRotate(-camera.pitch.toDouble(), -camera.yaw.toDouble(), 0.0)
             cameraController.setTranslate(camera.x.toDouble(), camera.z.toDouble(), camera.y.toDouble())
         }
 
