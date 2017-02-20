@@ -4,6 +4,7 @@ import com.kit.core.Session
 import javafx.animation.AnimationTimer
 import javafx.application.Application
 import javafx.collections.FXCollections
+import javafx.embed.swing.SwingFXUtils
 import javafx.scene.*
 import javafx.scene.layout.StackPane
 import javafx.scene.paint.Color
@@ -14,6 +15,8 @@ import javafx.scene.shape.TriangleMesh
 import javafx.scene.transform.Rotate
 import javafx.scene.transform.Translate
 import javafx.stage.Stage
+import java.io.File
+import javax.imageio.ImageIO
 
 /**
  * Created by Matt on 15/02/2017.
@@ -64,7 +67,11 @@ class FXGameApp : Application() {
         primaryStage?.show()
 
         clientAnimator.start()
-        
+
+        val texture = RSColour.textureForColours(4, 17, 17, 17, 4, 99, 150, 200, 985, 365, 548, 1223)
+
+        ImageIO.write(SwingFXUtils.fromFXImage(texture.first, null), "png", File("testtexture.png"))
+
     }
 
     private inner class ClientAnimator: AnimationTimer() {
