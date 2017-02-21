@@ -1,6 +1,7 @@
-package com.kit.gui2.modelviewer
+package com.kit.jfx.game
 
 import com.kit.core.Session
+import com.kit.jfx.game.CameraController
 import javafx.animation.AnimationTimer
 import javafx.application.Application
 import javafx.collections.FXCollections
@@ -24,16 +25,17 @@ import javax.imageio.ImageIO
 
 class FXGameApp : Application() {
 
-    private val cameraController = CameraController()
+    /*private val cameraController = CameraController()
     private val playerMesh = TriangleMesh()
     private val playerMeshView = MeshView()
     private val npcMesh = TriangleMesh()
-    private val npcMeshView = MeshView()
+    private val npcMeshView = MeshView()*/
+    val world = World()
     private val clientAnimator = ClientAnimator()
 
     override fun start(primaryStage: Stage?) {
-        cameraController.camera.nearClip = 0.1
-        cameraController.camera.farClip = 10000.0
+        /*cameraController.cameraController.nearClip = 0.1
+        cameraController.cameraController.farClip = 10000.0
 
         playerMesh.texCoords.setAll(
                 0f, 0f,
@@ -53,13 +55,18 @@ class FXGameApp : Application() {
         npcMeshView.material = PhongMaterial(Color.GREEN)
         npcMeshView.drawMode = DrawMode.FILL
 
+
         val group = Group(cameraController, npcMeshView, playerMeshView)
         group.isAutoSizeChildren = false
         group.depthTest = DepthTest.ENABLE
 
         val scene = Scene(group, 765.0, 503.0,true, SceneAntialiasing.BALANCED)
         scene.fill = Color.BLACK
-        scene.camera = cameraController.camera
+        scene.cameraController = cameraController.cameraController*/
+
+        val scene = Scene(world, 765.0, 503.0,true, SceneAntialiasing.BALANCED)
+        scene.fill = Color.BLACK
+        scene.camera = world.cameraController.camera
 
         primaryStage?.scene = scene
         primaryStage?.title = "Runescape"
@@ -67,11 +74,6 @@ class FXGameApp : Application() {
         primaryStage?.show()
 
         clientAnimator.start()
-
-        val texture = RSColour.textureForColours(4, 17, 17, 17, 4, 99, 150, 200, 985, 365, 548, 1223)
-
-        ImageIO.write(SwingFXUtils.fromFXImage(texture.first, null), "png", File("testtexture.png"))
-
     }
 
     private inner class ClientAnimator: AnimationTimer() {
@@ -79,12 +81,13 @@ class FXGameApp : Application() {
         override fun handle(now: Long) {
             if (Session.get() == null || !Session.get().isLoggedIn) return
 
-            updatePlayer()
+            world.update()
+            /*updatePlayer()
             updateNpc()
-            updateCamera()
+            updateCamera()*/
         }
 
-        private fun updatePlayer() {
+        /*private fun updatePlayer() {
             val triangles = Session.get().player.model?.triangles ?: return
 
             val points = FXCollections.observableFloatArray()
@@ -145,7 +148,7 @@ class FXGameApp : Application() {
             cameraController.setPivot(camera.x.toDouble(), camera.z.toDouble(), camera.y.toDouble())
             cameraController.setRotate(-camera.pitch.toDouble(), -camera.yaw.toDouble(), 0.0)
             cameraController.setTranslate(camera.x.toDouble(), camera.z.toDouble(), camera.y.toDouble())
-        }
+        }*/
 
     }
 

@@ -9,38 +9,38 @@ import com.kit.api.wrappers.interaction.SceneNode;
 public interface Camera {
 
     /**
-     * Gets the camera X
+     * Gets the cameraController X
      *
-     * @return camera x
+     * @return cameraController x
      */
     int getX();
 
     /**
-     * Gets the camera y
+     * Gets the cameraController y
      *
-     * @return camera y
+     * @return cameraController y
      */
     int getY();
 
     /**
-     * Gets the camera z
+     * Gets the cameraController z
      *
-     * @return camera z
+     * @return cameraController z
      */
     int getZ();
 
 
     /**
-     * Retrieves the current camera yaw in degrees.
+     * Retrieves the current cameraController yaw in degrees.
      *
-     * @return camera yaw
+     * @return cameraController yaw
      */
     int getYaw();
 
     /**
-     * Retrieves the current camera pitch in degrees.
+     * Retrieves the current cameraController pitch in degrees.
      *
-     * @return camera pitch
+     * @return cameraController pitch
      */
     int getPitch();
 

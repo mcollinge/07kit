@@ -32,7 +32,7 @@ public class GameObject extends SceneNode implements Wrapper<IGameObject> {
     private ObjectComposite composite;
 
     public GameObject(MethodContext context, IGameObject wrapped, GameObjectType type) {
-        super(context);
+        super(context, -1);
         this.wrapped = new WeakReference<>(wrapped);
         this.type = type;
     }

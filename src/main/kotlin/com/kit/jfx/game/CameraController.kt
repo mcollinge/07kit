@@ -1,4 +1,4 @@
-package com.kit.gui2.modelviewer
+package com.kit.jfx.game
 
 import javafx.scene.Group
 import javafx.scene.PerspectiveCamera

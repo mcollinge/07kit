@@ -19,8 +19,11 @@ import com.kit.api.wrappers.Model;
  */
 public abstract class SceneNode extends Interactable {
 
-    public SceneNode(MethodContext context) {
+    private int index;
+
+    public SceneNode(MethodContext context, int index) {
         super(context);
+        this.index = index;
     }
 
     /**
@@ -104,4 +107,9 @@ public abstract class SceneNode extends Interactable {
     public boolean isOnMinimap() {
         return context.minimap.convert(getTile()).x > -1;
     }
+
+    public int getIndex() {
+        return index;
+    }
+
 }

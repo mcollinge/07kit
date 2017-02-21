@@ -24,6 +24,13 @@ public interface Npcs {
     List<Npc> getAll();
 
     /**
+     * Gets npc at index
+     * @param index
+     * @return npc
+     */
+    Npc index(int index);
+
+    /**
      * Creates a new NPC query.
      *
      * @return query

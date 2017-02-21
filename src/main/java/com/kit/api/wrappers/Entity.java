@@ -36,8 +36,8 @@ public abstract class Entity extends SceneNode {
 	protected final WeakReference<IEntity> wrapped;
 	private final MethodContext ctx;
 
-	public Entity(MethodContext ctx, IEntity wrapped) {
-		super(ctx);
+	public Entity(MethodContext ctx, IEntity wrapped, int index) {
+		super(ctx, index);
 		this.wrapped = new WeakReference<>(wrapped);
 		this.ctx = ctx;
 	}
@@ -130,13 +130,13 @@ public abstract class Entity extends SceneNode {
 
 		if (index < 0x8000) {
 			INpc accessor = ctx.client().getNpcs()[index];
-			return accessor != null ? new Npc(ctx, accessor) : null;
+			return accessor != null ? new Npc(ctx, accessor, index) : null;
 		} else {
 			IPlayer accessor = ctx.client().getPlayers()[index - 0x8000];
 			if (accessor == null) {
 				return ctx.players.getLocal();
 			}
-			return new Player(ctx, accessor);
+			return new Player(ctx, accessor, index - 0x8000);
 		}
 	}
 

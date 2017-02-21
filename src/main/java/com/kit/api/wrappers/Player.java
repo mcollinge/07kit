@@ -11,8 +11,8 @@ import com.kit.api.MethodContext;
  *
  */
 public class Player extends Entity implements Wrapper<IPlayer> {
-    public Player(MethodContext ctx, IPlayer wrapped) {
-        super(ctx, wrapped);
+    public Player(MethodContext ctx, IPlayer wrapped, int index) {
+        super(ctx, wrapped, index);
     }
 
     /**

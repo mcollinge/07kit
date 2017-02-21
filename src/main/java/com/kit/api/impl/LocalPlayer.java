@@ -28,7 +28,7 @@ public class LocalPlayer extends SceneNode {
 
 
     public LocalPlayer(MethodContext ctx) {
-        super(ctx);
+        super(ctx, -1);
         this.ctx = ctx;
     }
 

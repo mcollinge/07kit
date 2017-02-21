@@ -18,7 +18,7 @@ public class Projectile extends SceneNode {
     private final WeakReference<IProjectile> wrapped;
 
     public Projectile(MethodContext ctx, IProjectile projectile) {
-        super(ctx);
+        super(ctx, -1);
         this.wrapped = new WeakReference<>(projectile);
     }
 

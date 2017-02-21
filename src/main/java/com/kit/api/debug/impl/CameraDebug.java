@@ -23,7 +23,7 @@ public class CameraDebug extends AbstractDebug {
 
     @Override
     public String getShortcode() {
-        return "camera";
+        return "cameraController";
     }
 
     @EventHandler

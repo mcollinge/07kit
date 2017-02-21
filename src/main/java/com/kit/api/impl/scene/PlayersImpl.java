@@ -38,7 +38,7 @@ public class PlayersImpl implements Players {
         public Player getLocal() {
         IPlayer local = ctx.client().getLocalPlayer();
         if (local != null) {
-            return new Player(ctx, local);
+            return new Player(ctx, local, -1);
         }
         return null;
     }
@@ -50,10 +50,10 @@ public class PlayersImpl implements Players {
     public List<Player> getAll() {
         List<Player> players = newArrayList();
         IPlayer[] playerArray = ctx.client().getPlayers();
-        for (IPlayer player : playerArray) {
-            if (player != null) {
-                players.add(new Player(ctx, player));
-            }
+        for (int i = 0; i < playerArray.length; i++) {
+            if (playerArray[i] == null)
+                continue;
+            players.add(new Player(ctx, playerArray[i], i));
         }
         return players;
     }
@@ -84,12 +84,12 @@ public class PlayersImpl implements Players {
         Filter<Player> collapsed = Filter.collapse(filters);
         List<Player> players = newArrayList();
         IPlayer[] playerArray = ctx.client().getPlayers();
-        for (IPlayer player : playerArray) {
-            if (player != null) {
-                Player wrapped = new Player(ctx, player);
-                if (collapsed.accept(wrapped)) {
-                    players.add(new Player(ctx, player));
-                }
+        for (int i = 0; i < playerArray.length; i++) {
+            if (playerArray[i] == null)
+                continue;
+            Player wrapped = new Player(ctx, playerArray[i], i);
+            if (collapsed.accept(wrapped)) {
+                players.add(wrapped);
             }
         }
         return players;

@@ -23,7 +23,7 @@ public class Loot extends SceneNode implements Wrapper<ILoot> {
     private ItemComposite composite;
 
     public Loot(MethodContext ctx, ILoot wrapped, GroundLayer layer, int localX, int localY, int z) {
-        super(ctx);
+        super(ctx, -1);
         this.wrapped = new WeakReference<>(wrapped);
         this.localX = localX;
         this.localY = localY;

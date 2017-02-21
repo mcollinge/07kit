@@ -20,8 +20,8 @@ public class Npc extends Entity implements Wrapper<INpc> {
 
     private NpcComposite composite;
 
-    public Npc(MethodContext ctx, INpc wrapped) {
-        super(ctx, wrapped);
+    public Npc(MethodContext ctx, INpc wrapped, int index) {
+        super(ctx, wrapped, index);
     }
 
     /**

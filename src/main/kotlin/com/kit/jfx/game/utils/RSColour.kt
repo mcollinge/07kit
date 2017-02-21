@@ -1,4 +1,4 @@
-package com.kit.gui2.modelviewer
+package com.kit.jfx.game.utils
 
 import javafx.scene.image.Image
 import javafx.scene.image.WritableImage

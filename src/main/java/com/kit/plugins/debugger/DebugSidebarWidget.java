@@ -21,7 +21,7 @@ public class DebugSidebarWidget extends MateScrollPane implements SidebarWidget 
     private final Image NORMAL_ICON = IconFontSwing.buildImage(FontAwesome.BUG, 20, Color.GRAY);
     private final Image TOGGLED_ICON = IconFontSwing.buildImage(FontAwesome.BUG, 20, Color.WHITE);
     private final DebugCheckBox[] debugs = {
-            new DebugCheckBox("Camera", "camera"),
+            new DebugCheckBox("Camera", "cameraController"),
             new DebugCheckBox("Login", "login"),
             new DebugCheckBox("Npcs", "npcs"),
             new DebugCheckBox("Players", "players"),

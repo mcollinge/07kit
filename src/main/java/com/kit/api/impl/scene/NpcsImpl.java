@@ -127,13 +127,20 @@ public class NpcsImpl implements Npcs {
     public List<Npc> getAll() {
         List<Npc> npcs = newArrayList();
         INpc[] npcArray = ctx.client().getNpcs();
-        for (INpc npc : npcArray) {
-            if (npc == null) {
+        for (int i = 0; i < npcArray.length; i++) {
+            if (npcArray[i] == null)
                 continue;
-            }
-            npcs.add(new Npc(ctx, npc));
+            npcs.add(new Npc(ctx, npcArray[i], i));
         }
         return npcs;
+    }
+
+    @Override
+    public Npc index(int index) {
+        INpc[] npcArray = ctx.client().getNpcs();
+        if (npcArray[index] == null)
+            return null;
+        return new Npc(ctx, npcArray[index], index);
     }
 
     /**
@@ -194,11 +201,10 @@ public class NpcsImpl implements Npcs {
         Filter<Npc> filter = Filter.collapse(filters);
         List<Npc> npcs = newArrayList();
         INpc[] npcArray = ctx.client().getNpcs();
-        for (INpc npc : npcArray) {
-            if (npc == null) {
+        for (int i = 0; i < npcArray.length; i++) {
+            if (npcArray[i] == null)
                 continue;
-            }
-            Npc wrapped = new Npc(ctx, npc);
+            Npc wrapped = new Npc(ctx, npcArray[i], i);
             if (filter.accept(wrapped)) {
                 npcs.add(wrapped);
             }
