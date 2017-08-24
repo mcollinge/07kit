@@ -3,12 +3,14 @@ package com.kit.gui.view;
 import com.kit.Application;
 import com.kit.gui.component.LoadingContainer;
 import com.kit.gui.controller.MainController;
+import com.kit.jfx.controllers.TitleBarController;
 import org.jdesktop.swingx.JXBusyLabel;
 import org.jdesktop.swingx.painter.BusyPainter;
 import com.kit.Application;
 import com.kit.gui.ControllerManager;
 import com.kit.gui.component.LoadingContainer;
 import com.kit.gui.controller.MainController;
+import tornadofx.FX;
 
 import javax.swing.*;
 import java.applet.Applet;
@@ -59,7 +61,8 @@ public class AppletView extends JPanel {
 
     public void showApplet() {
         remove(loadingContainer);
-        ControllerManager.get(MainController.class).toggleSidebar();
+        //ControllerManager.get(MainController.class).toggleSidebar();
+        FX.find(TitleBarController.class).toggleSidebar();
         add(applet, BorderLayout.CENTER);
         revalidate();
         repaint();

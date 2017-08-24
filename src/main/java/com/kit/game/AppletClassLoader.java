@@ -3,6 +3,7 @@ package com.kit.game;
 import com.google.gson.Gson;
 import com.kit.Application;
 import com.kit.api.util.NotificationsUtil;
+import com.kit.core.Session;
 import com.kit.game.exception.ClassPreloadException;
 import com.kit.game.transform.Extender;
 import com.kit.game.transform.impl.*;
@@ -88,7 +89,7 @@ public final class AppletClassLoader extends ClassLoader {
         if (hooks.revision != revision) {
             NotificationsUtil.showNotification("Error", "07Kit is currently outdated :(, check twitter for updates!");
             Application.outdated = true;
-            Application.APPLET_VIEW.refresh();
+            Session.get().getAppletView().refresh();
             return;
         }
         Map<String, ClassDefinition> definitions = newHashMap();

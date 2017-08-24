@@ -21,12 +21,12 @@ import java.awt.event.ComponentEvent;
  */
 public class MainView extends JFrame {
 
-    public static final String WIDTH_PROPERTY_KEY = "client_width";
-    public static final String HEIGHT_PROPERTY_KEY = "client_height";
-    public static final String X_PROPERTY_KEY = "client_x";
-    public static final String Y_PROPERTY_KEY = "client_y";
-    public static final int STANDARD_WIDTH = 1020;
-    public static final int STANDARD_HEIGHT = 540;
+    private static final String WIDTH_PROPERTY_KEY = "client_width";
+    private static final String HEIGHT_PROPERTY_KEY = "client_height";
+    private static final String X_PROPERTY_KEY = "client_x";
+    private static final String Y_PROPERTY_KEY = "client_y";
+    private static final int STANDARD_WIDTH = 1020;
+    private static final int STANDARD_HEIGHT = 540;
 
     private Dimension size;
 
@@ -143,21 +143,21 @@ public class MainView extends JFrame {
         SwingWorker worker = new SwingWorker() {
             protected Object doInBackground() throws Exception {
                 try {
-                    Application.SESSION.getAppletLoader().call();
+                    Session.get().getAppletLoader().call();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                Application.APPLET_VIEW.setApplet(Application.SESSION.getAppletLoader().getApplet());
-                Application.SESSION.getAppletLoader().start();
+                Session.get().getAppletView().setApplet(Session.get().getAppletLoader().getApplet());
+                Session.get().getAppletLoader().start();
                 while (!Session.get().getPluginManager().isPluginsStarted()) {
                     Thread.sleep(150);
                 }
-                Application.APPLET_VIEW.showApplet();
+                Session.get().getAppletView().showApplet();
                 return null;
             }
         };
         worker.execute();
-        displayPanel.add(Application.APPLET_VIEW, BorderLayout.CENTER);
+        displayPanel.add(Session.get().getAppletView(), BorderLayout.CENTER);
         revalidate();
         repaint();
     }

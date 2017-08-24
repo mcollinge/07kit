@@ -88,9 +88,9 @@ public class ScreenImpl implements Screen {
                 QuickChatPlugin.sendThroughChatBox(String.format("<col=ff0000>Screenshot saved: %s</col>", outputFile.toAbsolutePath().toString()),
                         "", "", MessageEvent.Type.MESSAGE_SERVER_FILTERED, false);
 
-                if (generateEvent) {
+                /*if (generateEvent) {
                     Session.get().getEventBus().submit(new ScreenshotEvent(outputFile.toFile(), outputFile.getFileName().toString(), ""));
-                }
+                }*/
                 return outputFile;
             } catch (IOException e) {
                 QuickChatPlugin.sendThroughChatBox(String.format("<col=ff0000>Couldn't save screenshot %s</col>", fileName),
